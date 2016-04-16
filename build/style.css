@@ -1,0 +1,46 @@
+.homeView__notification___2jOPr {
+	width: 100%;
+	margin-top: 1em;
+	background-color: aliceblue;
+	
+	padding: 12px;
+	
+	text-align: center;
+	color: dimgrey;
+}.headerView__container___2WLib {
+	width: 80%;
+	margin:1em auto;
+	display: block;
+	height: 40px;
+	
+	padding: 15px;
+	
+	text-align: center;
+	
+	background-color:  rgb(91.7%, 88.8%, 92.5%);
+}.resultList__container___1YiFF {
+	width: 80%;
+	margin:1em auto;
+	display: block;
+	
+}.resultCard__container___34A-T {
+	width: 30%;
+	height: 100px;
+	padding:12px;
+	display: inline-block;
+	
+	margin-right:1%;
+	
+	background-color: rgb(88.2%, 88.2%, 88.2%);
+	border-radius: 2px;
+}
+.resultCard__container___34A-T img {
+	height:100%;
+	max-width:50%;
+	float: right;
+}
+.resultCard__container___34A-T h5 {
+	width: 50%;
+	float: left;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/
