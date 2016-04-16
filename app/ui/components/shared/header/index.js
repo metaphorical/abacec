@@ -19,7 +19,15 @@ var Header = React.createClass({
 		}
 		var text = this.searchInput.value.trim();
 		searchModel.fetch(text).then((results) => {
+			// Object.keys(results.toJSON().facets).forEach((key) => {
+			// 	console.log('facet: ', key);
+			// 	Object.keys(results.toJSON().facets[key]).forEach((name) => {
+			// 		console.log("   " + name + ": ", results.toJSON().facets[key][name]);
+			// 	});
+			// });
 			this.props.updateResults(results.toJSON());
+			this.props.setFacets(results.toJSON().facets);
+			this.props.updateSearchNotification(null)
 		}).catch((err) => {
 			console.log('ERROR', err)
 		})
@@ -27,10 +35,13 @@ var Header = React.createClass({
 	handleChange(e) {
 		e.preventDefault();
 		setTimeout(() => {
-			if(this.searchInput.value.trim().length > 2) {
+			if(this.searchInput.value.trim().length > 3) {
 				this.doSearch();	
+			} else if(length !== 0) {
+				this.props.updateSearchNotification('Search criteria has to be longer than 3 characters')
 			} else {
-				this.props.updateResults({});
+				this.props.updateSearchNotification('To start enter your search');
+				this.props.updateResults(null);
 			}
 		}, 500);	
 	},

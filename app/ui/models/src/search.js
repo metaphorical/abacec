@@ -10,7 +10,11 @@ const SearchModel = function(options) {
 	return {
 		fetch: function(text) {
             return new Promise((resolve, reject) => {
-				index.search(text, function searchDone(err, response) {
+				index.search(text, {
+					attributesToRetrieve: ['name', 'image'],
+					hitsPerPage: 50,
+					facets: "*"
+				}, function searchDone(err, response) {
 					if(err) {
 						reject(err);
 					} else {

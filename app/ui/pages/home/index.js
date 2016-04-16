@@ -8,18 +8,24 @@ const Immutable = require('immutable');
 var HomePage = React.createClass({
 	getInitialState() {
 		return {
-			searchResults: null
+			searchResults: null,
+			searchOverrideNotification: 'To start enter your search'
 		};
     },
 	reducerFactory(stateKey) {
 		
 		var that = this;
 		return function(entry) {
-		    var current = Immutable.fromJS(that.state[stateKey] || {});
-            var extended = current.merge(entry);
+			var mergeEntryJS = {}; 
+				mergeEntryJS[stateKey] = entry;
+			var currentJS = {};
+			if(typeof that.state[stateKey] !== 'undefined') {
+				currentJS[stateKey] = that.state[stateKey];
+			}	
+		    var current = Immutable.fromJS(currentJS);
+            var extended = current.merge(mergeEntryJS);
             if (!current.equals(extended)) {
-				var stateAddition = {};
-				stateAddition[stateKey] = extended.toJSON()
+				var stateAddition = extended.toJSON();
                 that.setState(stateAddition);
             }
 		};	
