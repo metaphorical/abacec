@@ -1,0 +1,50 @@
+{
+  "name": "quantum-boilerplate",
+  "version": "0.4.0",
+  "description": "Examples for node.js testing with Jasmine and nock",
+  "main": "server.js",
+  "repository": "git@github.com:metaphorical/quantum-boilerplate.git",
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack",
+    "watch": "./node_modules/.bin/webpack --watch"
+  },
+  "keywords": [
+    "instant",
+    "search",
+    "react",
+    "postcss"
+  ],
+  "author": "Rastko",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.9.1",
+    "nodemon": "^1.3.7",
+    "react-hot-loader": "^1.3.0"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.13.1",
+    "autoprefixer": "^6.3.6",
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "immutable": "^3.7.6",
+    "jquery": "^2.2.3",
+    "postcss-custom-media": "^5.0.1",
+    "postcss-custom-properties": "^5.0.0",
+    "postcss-import": "^8.1.0",
+    "postcss-loader": "^0.8.2",
+    "postcss-nested": "^1.0.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-notifier": "^1.3.0"
+  }
+}
