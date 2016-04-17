@@ -1,20 +1,7 @@
 .container {
-	width: 30%;
-	height: 100px;
-	padding:12px;
-	display: inline-block;
-	
-	margin-right:1%;
-	
-	background-color: rgb(88.2%, 88.2%, 88.2%);
-	border-radius: 2px;
-	img {
-		height:100%;
-		max-width:50%;
-		float: right;
-	}
-	h5 {
-		width: 50%;
-		float: left;
-	}
+	width: 90%;
+	height: 25px;
+	padding:10px;
+	display: block;
+	margin-top: 2px;
 }

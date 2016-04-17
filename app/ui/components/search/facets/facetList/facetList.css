@@ -1,0 +1,17 @@
+.container {
+	width: 100%;
+	display: block;
+	
+	margin: 1em 0;
+}
+
+.toggleFacets {
+	padding: 3px 6px;
+	font-weight: bold;
+	
+	cursor: pointer;
+	&:hover {
+		border: 1px solid rgba(204,204,204,1);
+		box-shadow: 3px 12px 8px -7px rgba(204,204,204,1);
+	}
+}

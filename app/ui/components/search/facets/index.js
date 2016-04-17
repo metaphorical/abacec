@@ -1,16 +1,16 @@
 "use strict";
 
 const React = require('react');
-const resultCard = require('./resultCard.jsx');
+const facetsView = require('./facets.jsx');
 
 
-var ResultCard = React.createClass({
+var Facets = React.createClass({
 	getInitialState() {
 		return {};
     },
     render() {
-        return resultCard(this);
+        return facetsView(this);
     }
 });
 
-module.exports = ResultCard;
+module.exports = Facets;
