@@ -9,5 +9,21 @@ module.exports = {
             object = object[args[i]];
         }
         return true;
-    }
+    },
+	isObject(obj) {
+		return (obj instanceof Object);	
+	},
+	deepMerge(target, source) {
+		if (this.isObject(target) && this.isObject(source)) {
+			Object.keys(source).forEach((key) => {
+				if (this.isObject(source[key])) {
+					if (!target[key]) Object.assign(target, { [key]: {} });
+					this.deepMerge(target[key], source[key]);
+				} else {
+					Object.assign(target, { [key]: source[key] });
+				}
+			});
+		}
+		return target;
+	}
 };

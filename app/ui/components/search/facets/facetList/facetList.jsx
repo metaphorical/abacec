@@ -1,8 +1,9 @@
 const React = require('react');
 
 const styles = require('./facetList.css');
-
 const FacetItem = require('../facetItem');
+
+const reactUtils = require('../../../../../utility/react.js');
 
 module.exports = (view) => {
 	return (
@@ -10,7 +11,10 @@ module.exports = (view) => {
 			<div onClick={view.toggleFacets} className={styles.toggleFacets}>{view.getFacetName()} ({Object.keys(view.props.facets).length})</div>
 			{(view.state.showFacets) ? 
 				Object.keys(view.props.facets).map((name) => {
-					return <FacetItem name={name} count={view.props.facets[name]} />;
+					return <FacetItem 
+								name={name} 
+								count={view.props.facets[name]} 
+								addCriteria={reactUtils.reducerFactory(view, 'selected')} />;
 				}) :
 			null}
 		</div>

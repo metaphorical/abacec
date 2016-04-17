@@ -7,7 +7,8 @@ const facetList = require('./facetList.jsx');
 var FacetListView = React.createClass({
 	getInitialState() {
 		return {
-            showFacets: false
+            showFacets: false,
+            selected: {}
         };
     },
     toggleFacets() {
@@ -15,6 +16,9 @@ var FacetListView = React.createClass({
       this.setState({
          showFacets: newVal
       });
+    },
+    componentDidUpdate() {
+      console.log('selected', this.state.selected);  
     },
     getFacetName() {
       //For now override just category lvl1 if it is the case
