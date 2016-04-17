@@ -1,8 +1,12 @@
 .container {
 	width: 100%;
 	display: block;
+	background-color: #f5f5f5;
 	
-	margin: 1em 0;
+	box-shadow: 3px 12px 8px -7px rgba(204,204,204,1);
+	
+	margin: -1em 0;
+	padding: 1em;
 }
 
 .facetContainer {

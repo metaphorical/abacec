@@ -11,7 +11,7 @@ const SearchModel = function(options) {
 		fetch: function(text) {
             return new Promise((resolve, reject) => {
 				index.search(text, {
-					attributesToRetrieve: ['name', 'image'],
+					attributesToRetrieve: ['name', 'hierarchicalCategories'],
 					hitsPerPage: 50,
 					facets: "*"
 				}, function searchDone(err, response) {

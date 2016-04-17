@@ -5,9 +5,9 @@ const FacetList = require('./facetList');
 
 module.exports = (view) => {
 	return (
-		<div>
+		<div className={styles.container}>
 			<h5 className={styles.title}>Improve your results - rafine criteria</h5>
-			<div className={styles.container}>
+			<div>
 				{Object.keys(view.props.facets).map((key, i) => {
 						return <FacetList name={key} key={i} facets={view.props.facets[key]}/>
 					})}

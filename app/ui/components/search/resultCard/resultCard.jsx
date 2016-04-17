@@ -4,7 +4,8 @@ const styles = require('./resultCard.css');
 module.exports = (view) => {
     return (
 		<div className={styles.container}>
-			<span>{view.props.result.name}</span>
+			<p className={styles.title} dangerouslySetInnerHTML={view.getHighlightedName()} />
+			<span className={styles.category}>{view.getCategory()}</span>
 		</div>
     );
 };

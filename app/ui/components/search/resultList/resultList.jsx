@@ -9,7 +9,7 @@ module.exports = (view) => {
 		<div className={styles.container}>
 			{(hasResults) ?
 				view.props.searchResults.map((result) => {
-					return <ResultCard result={result} />
+					return <ResultCard {...result} />
 				})
 				:
 				<h1>No Results</h1>
