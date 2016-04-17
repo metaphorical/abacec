@@ -4,14 +4,16 @@ const styles = require('./homeView.css');
 const Header = require('../../components/shared/header');
 const ResultList = require('../../components/search/resultList');
 const Facets = require('../../components/search/facets');
+	
+const reactUtils = require('../../../utility/react.js');
 
 module.exports = (view) => {
     return (
 		<div>
 			<Header 
-					updateResults={view.reducerFactory("searchResults")}
-					updateSearchNotification={view.reducerFactory("searchOverrideNotification")}
-					setFacets={view.reducerFactory("facets")}
+					updateResults={reactUtils.reducerFactory(view, "searchResults")}
+					updateSearchNotification={reactUtils.reducerFactory(view, "searchOverrideNotification")}
+					setFacets={reactUtils.reducerFactory(view, "facets")}
 			/>
 			
 			

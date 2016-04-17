@@ -16,6 +16,10 @@ var FacetListView = React.createClass({
          showFacets: newVal
       });
     },
+    getFacetName() {
+      //For now override just category lvl1 if it is the case
+      return this.props.name.includes('Categories') ? 'Category' : (this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1));
+    },
     render() {
         return facetList(this);
     }
