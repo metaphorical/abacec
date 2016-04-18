@@ -10,7 +10,8 @@ var HomePage = React.createClass({
 		return {
 			searchResults: null,
 			facetFilters: null,
-			searchOverrideNotification: 'Welcome! To begin - start typing your search.'
+			searchOverrideNotification: 'Welcome! To begin - start typing your search.',
+			loading: false
 		};
     },
     render() {

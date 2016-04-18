@@ -4,6 +4,7 @@ const styles = require('./homeView.css');
 const Header = require('../../components/shared/header');
 const ResultList = require('../../components/search/resultList');
 const Facets = require('../../components/search/facets');
+const Loader = require('../../components/shared/loader');
 	
 const reactUtils = require('../../../utility/react.js');
 
@@ -15,8 +16,12 @@ module.exports = (view) => {
 					updateSearchNotification={reactUtils.reducerFactory(view, "searchOverrideNotification")}
 					setFacets={reactUtils.reducerFactory(view, "facets")}
 					facetFilters={view.state.facetFilters}
+					setLoading={reactUtils.reducerFactory(view, "loading")}
+					
 			/>
-			
+			{(view.state.loading) ?
+					<Loader />
+					: null }
 			
 			{(view.state.searchResults && !view.state.searchOverrideNotification) ? 
 			(<div className={styles.acContainer}>

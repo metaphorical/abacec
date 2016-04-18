@@ -8,6 +8,7 @@ const reactUtils = require('../../../../utility/react.js');
 module.exports = (view) => {
 	return (
 		<div className={styles.container}>
+					
 			<h5 className={styles.title}>Improve your results - fine tune your criteria</h5>
 			<div>
 				{Object.keys(view.props.facets).map((key, i) => {

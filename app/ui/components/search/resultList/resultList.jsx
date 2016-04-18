@@ -6,9 +6,10 @@ const ResultCard = require('../resultCard');
 module.exports = (view) => {
 	const hasResults = (view.props.searchResults.length > 0);
     return (
-		<div className={styles.container}>
+		<div className={styles.container} >
 			{(hasResults) ?
-				view.props.searchResults.map((result) => {
+				view.props.searchResults.map((result, i) => {
+					result.reactKey = i;
 					return <ResultCard {...result} />
 				})
 				:
