@@ -11,12 +11,12 @@ const searchModel = SearchModel({
 });
 
 const reactUtils = require('../../../../utility/react.js')
+const objectUtils = require('../../../../utility/object.js')
 
 var Header = React.createClass({
 	getInitialState() {
 		return {
-			facetFilters: null,
-			facets: null
+			facets: {}
 		};
     },
 	doSearch(e) {
@@ -24,7 +24,12 @@ var Header = React.createClass({
 			e.preventDefault();
 		}
 		var text = this.searchInput.value.trim();
-		searchModel.fetch(text).then((results) => {
+		var searchParams = {};
+		searchParams.text = text;
+		if(this.generateFacetFilters() && this.generateFacetFilters().length !== 0) {
+			searchParams.facetFilters = this.generateFacetFilters();
+		}  
+		searchModel.fetch(searchParams).then((results) => {
 			this.props.updateResults(results.toJSON());
 			this.props.setFacets(results.toJSON().facets);
 			this.setState({
@@ -35,11 +40,13 @@ var Header = React.createClass({
 			console.log('ERROR', err)
 		})
 	},
-	updateFacetFilters(facetFiltersObject) {
-		reactUtils.reducerFactory(this, 'facetFilters')(facetFiltersObject);
+	updateFacetFilters(facetFiltersObject, clean) {
+		var cleaning = clean || false;
+		reactUtils.reducerFactory(this, 'facetFilters')(facetFiltersObject, cleaning);
 	},
 	componentDidUpdate() {
 		this.updateFacetFilters(this.generateFacetFilters(), true);
+		this.doSearch();
 	},
 	generateFacetFilters() {
 		if(this.props.facetFilters) {
@@ -52,11 +59,11 @@ var Header = React.createClass({
 						}
 					}).filter((key) => {
 						var check = key ? key.split(':') : null;
-						if(key && this.props.facetFilters[check[0]][check[1]]) {
+						if(key && this.props.facetFilters[check[0]][check[1]] && objectUtils.hasDeepProp(this.state.facets, check[0], check[1])) {
 							return true;
 						}
 					});
-				} else if(this.props.facetFilters[groupName][keys[0]]){
+				} else if(this.props.facetFilters[groupName][keys[0]] && objectUtils.hasDeepProp(this.state.facets, groupName, keys[0])){
 					return groupName + ":" + keys[0];
 				}
 			}).filter((key) => {

@@ -8,13 +8,16 @@ const SearchModel = function(options) {
 	const index = client.initIndex(options.index);
 	var _data = null;
 	return {
-		fetch: function(text) {
-            return new Promise((resolve, reject) => {
-				index.search(text, {
+		fetch: function(params) {
+			var text = params.text;
+			var parameters = Object.assign({
 					attributesToRetrieve: ['name', 'hierarchicalCategories'],
 					hitsPerPage: 50,
 					facets: "*"
-				}, function searchDone(err, response) {
+				}, params);
+			delete parameters.text;
+            return new Promise((resolve, reject) => {
+				index.search(text, parameters, function searchDone(err, response) {
 					if(err) {
 						reject(err);
 					} else {
