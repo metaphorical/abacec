@@ -5,8 +5,7 @@ module.exports = {
 	 */
 	reducerFactory(context, stateKey) {
 		var that = context;
-		//@TODO: add clean flag which will just replace old state entry with new one.
-		return function(entry) {
+		return function(entry, clean) {
 			var stateAddition = {};
 			/**
 			 * if new state entry is not an object or is null (typeof null is object),
@@ -33,8 +32,11 @@ module.exports = {
 					currentJS = that.state[stateKey];
 					var current = Immutable.fromJS(currentJS);
 					var extended = current.merge(entry);
-					if (!current.equals(extended)) {
+					if (!current.equals(extended) && !clean) {
 						stateAddition[stateKey] = extended.toJSON();
+						that.setState(stateAddition);
+					} else if(clean && !current.equals(Immutable.fromJS(entry))) {
+						stateAddition[stateKey] = entry;
 						that.setState(stateAddition);
 					} else {
 						return

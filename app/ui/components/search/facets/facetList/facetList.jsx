@@ -14,6 +14,7 @@ module.exports = (view) => {
 					return <FacetItem 
 								name={name} 
 								count={view.props.facets[name]} 
+								selected = {view.state.selected[name] ? true : false}
 								addCriteria={reactUtils.reducerFactory(view, 'selected')} />;
 				}) :
 			null}

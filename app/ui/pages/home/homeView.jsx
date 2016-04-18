@@ -14,6 +14,7 @@ module.exports = (view) => {
 					updateResults={reactUtils.reducerFactory(view, "searchResults")}
 					updateSearchNotification={reactUtils.reducerFactory(view, "searchOverrideNotification")}
 					setFacets={reactUtils.reducerFactory(view, "facets")}
+					facetFilters={view.state.facetFilters}
 			/>
 			
 			
@@ -24,7 +25,10 @@ module.exports = (view) => {
 				</div>
 					{(view.state.facets) ?
 						<div className={styles.acSidebarColumn}>
-								<Facets facets={view.state.facets} />
+								<Facets 
+									facets={view.state.facets} 
+									updateFacetFilters={reactUtils.reducerFactory(view, 'facetFilters')}
+									/>
 						</div>
 						: null }
 			</div>)

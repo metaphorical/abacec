@@ -18,7 +18,9 @@ var FacetListView = React.createClass({
       });
     },
     componentDidUpdate() {
-      console.log('selected', this.state.selected);  
+      var facetsEntry = {};
+      facetsEntry[this.props.name] = this.state.selected;
+      this.props.mergeFacets(facetsEntry);
     },
     getFacetName() {
       //For now override just category lvl1 if it is the case

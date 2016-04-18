@@ -6,7 +6,12 @@ const facetsView = require('./facets.jsx');
 
 var Facets = React.createClass({
 	getInitialState() {
-		return {};
+		return {
+            selected:{}
+        };
+    },
+    componentDidUpdate() {
+        this.props.updateFacetFilters(this.state.selected);
     },
     render() {
         return facetsView(this);

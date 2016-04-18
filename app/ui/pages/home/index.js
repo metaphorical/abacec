@@ -9,10 +9,10 @@ var HomePage = React.createClass({
 	getInitialState() {
 		return {
 			searchResults: null,
+			facetFilters: null,
 			searchOverrideNotification: 'Welcome! To begin - start typing your search.'
 		};
     },
-
     render() {
         return homeView(this);
     }

@@ -9,9 +9,6 @@ var ResultList = React.createClass({
 	getInitialState() {
 		return {};
     },
-	componentWillReceiveProps(newProps) {
-		console.log('new props', newProps)	
-	},
     render() {
         return resultList(this);
     }
