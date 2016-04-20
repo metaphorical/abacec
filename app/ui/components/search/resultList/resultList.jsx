@@ -10,6 +10,7 @@ module.exports = (view) => {
 			{(hasResults) ?
 				view.props.searchResults.map((result, i) => {
 					result.reactKey = i;
+					result.highlighted = (i === view.state.highlightPos) ? true : false;
 					return <ResultCard {...result} />
 				})
 				:

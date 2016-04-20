@@ -101,6 +101,14 @@ var Header = React.createClass({
 			}
 		}, 500);	
 	},
+	handleKeyDown(e) {
+		if(e.keyCode === 38) {
+			this.props.handleUp();
+		}	
+		if(e.keyCode === 40) {
+			this.props.handleDown();
+		}	
+	},
     render() {
         return headerView(this);
     }

@@ -17,7 +17,8 @@ module.exports = (view) => {
 					setFacets={reactUtils.reducerFactory(view, "facets")}
 					facetFilters={view.state.facetFilters}
 					setLoading={reactUtils.reducerFactory(view, "loading")}
-					
+					handleUp={view.handleUp}
+					handleDown={view.handleDown}					
 			/>
 			{(view.state.loading) ?
 					<Loader />
@@ -26,7 +27,7 @@ module.exports = (view) => {
 			{(view.state.searchResults && !view.state.searchOverrideNotification) ? 
 			(<div className={styles.acContainer}>
 				<div className={styles.acMainColumn}>
-						<ResultList searchResults={view.state.searchResults.hits} />
+						<ResultList searchResults={view.state.searchResults.hits} highlightPos={view.state.highlightPos} />
 				</div>
 					{(view.state.facets) ?
 						<div className={styles.acSidebarColumn}>

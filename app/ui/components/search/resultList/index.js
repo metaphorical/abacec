@@ -9,6 +9,13 @@ var ResultList = React.createClass({
 	getInitialState() {
 		return {};
     },
+    componentDidUpdate(prevProps) {
+        if(prevProps.highlightPos !== this.props.highlightPos) {
+            this.setState({
+                highlightPos: this.props.highlightPos 
+            });      
+        }
+    },
     render() {
         return resultList(this);
     }

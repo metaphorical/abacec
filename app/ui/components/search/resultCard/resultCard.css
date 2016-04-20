@@ -12,6 +12,9 @@
 		background-color: white;
 	}
 }
+.highlighted {
+	background-color: blanchedalmond;
+}
 
 .category {
 	font-size: 0.8em;

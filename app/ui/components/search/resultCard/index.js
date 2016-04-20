@@ -6,7 +6,9 @@ const resultCard = require('./resultCard.jsx');
 
 var ResultCard = React.createClass({
 	getInitialState() {
-		return {};
+		return {
+            highlighted: false
+        };
     },
     getCategory() {
         // Because of potential length of anything above hierarchicalCategories.lvl1
@@ -16,6 +18,13 @@ var ResultCard = React.createClass({
                        this.props.hierarchicalCategories.lvl1 || 
                        this.props.hierarchicalCategories.lvl0 || 
                        '') : ''; 
+    },
+    componentDidUpdate(prevProps) {
+        if(prevProps.highlighted !== this.props.highlighted) {
+            this.setState({
+                highlighted: this.props.highlighted 
+            });      
+        }
     },
     getHighlightedName() {
         // Needed to insert html to jsx

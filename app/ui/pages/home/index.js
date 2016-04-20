@@ -11,12 +11,33 @@ var HomePage = React.createClass({
 			searchResults: null,
 			facetFilters: null,
 			searchOverrideNotification: 'Welcome! To begin - start typing your search.',
-			loading: false
+			loading: false,
+			highlightPos: -1
 		};
     },
     render() {
         return homeView(this);
-    }
+    },
+	handleUp() {
+		console.log('Position', this.state.highlightPos);
+		if(this.state.searchResults) {
+			var position = this.state.highlightPos;
+			position = (position <= 0) ? this.state.searchResults.hits.length - 1 : (position - 1);
+			this.setState({
+				highlightPos: position
+			});
+		}
+	},
+	handleDown(){
+		console.log('Position', this.state.highlightPos);
+		if(this.state.searchResults) {
+			var position = this.state.highlightPos;
+			position = (position === this.state.searchResults.hits.length - 1) ? 0 : (position + 1);
+			this.setState({
+				highlightPos: position
+			});
+		}
+	}
 });
 
 module.exports = React.createFactory(HomePage);
