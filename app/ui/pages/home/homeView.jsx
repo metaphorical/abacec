@@ -18,7 +18,8 @@ module.exports = (view) => {
 					facetFilters={view.state.facetFilters}
 					setLoading={reactUtils.reducerFactory(view, "loading")}
 					handleUp={view.handleUp}
-					handleDown={view.handleDown}					
+					handleDown={view.handleDown}
+					handleChoice={view.handleChoice}					
 			/>
 			{(view.state.loading) ?
 					<Loader />

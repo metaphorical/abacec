@@ -37,6 +37,9 @@ var HomePage = React.createClass({
 				highlightPos: position
 			});
 		}
+	},
+	handleChoice() {
+		console.log('User has chosen: ', this.state.highlightPos);
 	}
 });
 

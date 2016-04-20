@@ -108,6 +108,13 @@ var Header = React.createClass({
 		if(e.keyCode === 40) {
 			this.props.handleDown();
 		}	
+		if(e.keyCode === 13) {
+			this.props.handleChoice();
+		}	
+	},
+	eventVoid(e) {
+		e.preventDefault;
+		return;
 	},
     render() {
         return headerView(this);
