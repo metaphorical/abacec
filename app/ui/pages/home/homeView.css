@@ -19,12 +19,16 @@
 }
 
 .notification {
-	width: 100%;
-	margin-top: 1em;
+	width: 95%;
+	margin: 1em auto;
 	background-color: aliceblue;
 	
 	padding: 1em;
 	
 	text-align: center;
 	color: dimgrey;
+}
+
+body {
+	background-color: rgb(65.3%, 68.5%, 73.7%);
 }

@@ -12,7 +12,7 @@ const SearchModel = function(options) {
 			var text = params.text;
 			var parameters = Object.assign({
 					attributesToRetrieve: ['name', 'hierarchicalCategories'],
-					hitsPerPage: 50,
+					hitsPerPage: 10,
 					facets: "*"
 				}, params);
 			delete parameters.text;

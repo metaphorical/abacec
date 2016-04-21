@@ -113,8 +113,7 @@ var Header = React.createClass({
 		}	
 	},
 	eventVoid(e) {
-		e.preventDefault;
-		return;
+		e.preventDefault();
 	},
     render() {
         return headerView(this);

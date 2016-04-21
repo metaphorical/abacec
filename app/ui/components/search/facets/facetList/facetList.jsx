@@ -8,7 +8,10 @@ const reactUtils = require('../../../../../utility/react.js');
 module.exports = (view) => {
 	return (
 		<div className={styles.container} >
-			<div onClick={view.toggleFacets} className={styles.toggleFacets}>{view.getFacetName()} ({Object.keys(view.props.facets).length})</div>
+			<div onClick={view.toggleFacets} className={styles.toggleFacets}>
+					{view.getFacetName()} ({Object.keys(view.props.facets).length})
+					<span className={styles.plusminus}>[{(view.state.showFacets) ? '-' : '+'}]</span>
+			</div>
 			{(view.state.showFacets) ? 
 				Object.keys(view.props.facets).map((name, i) => {
 					return <FacetItem 
